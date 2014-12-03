@@ -46,14 +46,15 @@ public class VectorMatrixMulti {
             System.out.println("n="+n);
             System.out.println("reducing key="+key.toString());
             
-            List<Text> vectors = new ArrayList<Text>(2);
+            String[] A = null, B = null;
             for ( Text vector : values ){
             	System.out.println("value="+vector.toString());
-            	vectors.add(vector);
+            	if ( vector.toString().startsWith("A") )
+            		A = vector.toString().split(",");
+            	else
+            		B = vector.toString().split(",");
             }
-            
-            String[] A = vectors.get(0).toString().split(",");
-            String[] B = vectors.get(1).toString().split(",");
+            System.out.println(A[0]+", "+B[0]);
             
             for (int i = 0; i < n; i++){
             	double a = Double.valueOf(A[i+2]);
